@@ -172,7 +172,7 @@ long int disk_usage(char *path)
 		}
 		
 		while ((direntp = readdir(dir_ptr)) != NULL) {
-			// skip target dir to avoid infinite loop
+			// handle hidden/linked directories then skip target dir to avoid infinite loop
 			if (strcmp(direntp->d_name, ".") == 0 || strcmp(direntp->d_name, "..") == 0) {
 				total_usage += 4;
 				continue;
